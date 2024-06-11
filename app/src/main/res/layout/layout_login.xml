@@ -1,52 +1,63 @@
-<?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical"
-    android:gravity="center">
+    android:background="@color/fondo"
+    android:gravity="center"
+    android:padding="16dp">
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="¡Bienvenido, jugador/a!"
-        android:textColor="@color/verde_oscuro"
+        android:textColor="@color/primario"
         android:textStyle="bold"
-        android:textSize="70px"
+        android:textSize="24sp"
         android:layout_marginBottom="20dp"/>
 
     <EditText
-        android:id="@+id/etUsuario"
+        android:id="@+id/etUsuarioRegister"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
-        android:hint="Usuario o correo electrónico" />
+        android:layout_marginBottom="16dp"
+        android:hint="Correo electrónico"
+        android:background="@drawable/estilo_edittext"
+        android:padding="12dp"/>
 
     <EditText
         android:id="@+id/etContrasenya"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="16dp"
+        android:layout_marginBottom="16dp"
         android:inputType="textPassword"
-        android:hint="Contraseña" />
+        android:hint="Contraseña"
+        android:background="@drawable/estilo_edittext"
+        android:padding="12dp"/>
 
     <Button
         android:id="@+id/btnRegistrar2"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:textColor="@color/white"
-        android:layout_margin="16dp"
+        android:textColor="@color/blanco"
+        android:layout_marginBottom="16dp"
         android:text="Iniciar sesión"
         android:background="@drawable/estilo_boton"/>
 
     <Button
         android:id="@+id/btnRegistrar"
-        android:layout_width="wrap_content"
-        android:layout_height="30dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
         android:textAllCaps="false"
-        android:textColor="@color/verde_oscuro"
-        android:layout_margin="16dp"
-        android:text="¿No tienes una cuenta? Regístrate"
-        android:background="@drawable/estilo_boton_transparente"/>
+        android:textColor="@color/primario"
+        android:background="@drawable/estilo_boton_transparente"
+        android:text="¿No tienes una cuenta? Regístrate"/>
+
+    <ProgressBar
+        android:id="@+id/progressBarLogin"
+        style="?android:attr/progressBarStyleHorizontal"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:visibility="gone"/>
 
 </LinearLayout>

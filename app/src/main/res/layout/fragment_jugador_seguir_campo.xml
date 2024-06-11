@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:gravity="center_horizontal"
+    android:background="@color/fondo"
+    tools:context=".PlayerFragmentSeguirCampo">
+
+    <EditText
+        android:id="@+id/etBuscarCampo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="Buscar campo"
+        android:padding="12dp"
+        android:drawableStart="@drawable/search"
+        android:drawablePadding="8dp"
+        android:background="@drawable/estilo_edittext"
+        android:layout_marginBottom="16dp"
+        android:textColor="@color/texto_primario"/>
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/etBuscarCampo">
+
+        <LinearLayout
+            android:id="@+id/tblCamposJugador"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:padding="8dp">
+
+        </LinearLayout>
+    </ScrollView>
+
+    <TextView
+        android:id="@+id/tvNoCampos"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="No se encontraron campos..."
+        android:visibility="gone"
+        android:layout_centerInParent="true"
+        android:textColor="@color/texto_primario"
+        android:textSize="16sp"/>
+</RelativeLayout>

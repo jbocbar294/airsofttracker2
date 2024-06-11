@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/pageMisPartidasJugador"
+        android:icon="@drawable/game"
+        android:title="Partidas" />
+    <item
+        android:id="@+id/pageEstadisticas"
+        android:icon="@drawable/stats"
+        android:title="Estadísticas" />
+    <item
+        android:id="@+id/pagePerfil"
+        android:icon="@drawable/profile"
+        android:title="Perfil" />
+</menu>

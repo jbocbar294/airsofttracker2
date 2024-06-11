@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools">
-
     <!-- Permisos necesarios para la aplicación -->
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
+    <uses-permission android:name="android.permission.VIBRATE" />
 
     <application
         android:allowBackup="true"
@@ -26,13 +26,18 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".MainActivity"
-            android:exported="true">
-        </activity>
+            android:name=".PlayerActivity"
+            android:exported="true"/>
+        <activity
+            android:name=".OwnerActivity"
+            android:exported="true"/>
         <activity
             android:name=".RegisterActivity"
-            android:exported="true">
-        </activity>
+            android:exported="true"/>
+        <activity
+            android:name=".FieldCreateActivity"
+            android:exported="true"/>
+
     </application>
 
 </manifest>

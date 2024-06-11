@@ -1,0 +1,98 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:padding="16dp"
+    android:id="@+id/frg_owner_partidas"
+    android:background="@color/fondo"
+    tools:context=".OwnerFragmentPartidas">
+
+    <TextView
+        android:id="@+id/tvOwnerMisPartidas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:layout_marginTop="50dp"
+        android:text="Mis partidas"
+        android:textSize="24sp"
+        android:textColor="@color/primario"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/imgLinea"
+        android:layout_width="match_parent"
+        android:layout_height="2dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@id/tvOwnerMisPartidas"
+        android:layout_marginVertical="8dp"
+        android:background="@color/primario" />
+
+    <TableLayout
+        android:id="@+id/tblPartidas"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:stretchColumns="1"
+        android:background="@drawable/tabla_fondo"
+        android:padding="8dp"
+        android:layout_below="@id/imgLinea">
+
+        <TableRow>
+            <TextView
+                android:text="Nombre"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/primario"
+                android:layout_weight="1"/>
+            <TextView
+                android:text="Fecha Inicio"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/primario"
+                android:layout_weight="2"/>
+            <TextView
+                android:text="Fecha Fin"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/primario"
+                android:layout_weight="2"/>
+            <TextView
+                android:text="Jugadores"
+                android:padding="8dp"
+                android:textStyle="bold"
+                android:gravity="center"
+                android:textColor="@color/primario"
+                android:layout_weight="1"/>
+        </TableRow>
+    </TableLayout>
+
+    <TextView
+        android:id="@+id/tvNoPartidas"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tblPartidas"
+        android:text="No tienes ninguna partida..."
+        android:layout_centerHorizontal="true"
+        android:layout_marginTop="20dp"
+        android:textColor="@color/texto_secundario"
+        android:textSize="16sp"
+        android:visibility="gone"/>
+
+    <Button
+        android:id="@+id/btnAddPartida"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_below="@id/tvNoPartidas"
+        android:layout_marginTop="20dp"
+        android:layout_centerHorizontal="true"
+        android:text="Añadir partida"
+        android:background="@drawable/estilo_boton"
+        android:textAllCaps="false"
+        android:textColor="@color/blanco"/>
+</RelativeLayout>

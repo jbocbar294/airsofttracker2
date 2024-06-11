@@ -1,6 +1,25 @@
-<?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <color name="black">#FF000000</color>
-    <color name="white">#FFFFFFFF</color>
-    <color name="verde_oscuro">#1D2C01</color>
+    <!-- Colores de fondo -->
+    <color name="fondo">#FAFAFA</color>
+    <color name="background">#DADADA</color>
+    <color name="background_cardview">#C6C6C6</color>
+
+    <!-- Colores primarios -->
+    <color name="primario">#009688</color>
+    <color name="primario_oscuro">#00796B</color>
+    <color name="verde_oscuro">#133701</color>
+
+    <!-- Colores de texto -->
+    <color name="texto_primario">#212121</color>
+    <color name="texto_secundario">#757575</color>
+    <color name="blanco">#FFFFFF</color>
+    <color name="negro">#000000</color>
+    <color name="gris">#A1A1A1</color>
+    <color name="naranja">#FF6600</color>
+    <color name="rojo">#FF0000</color>
+
+    <!-- Colores para botones -->
+    <color name="fondo_boton">#FF6600</color> <!-- Naranja -->
+    <color name="fondo_boton_transparente">#80FFFFFF</color> <!-- Blanco semi-transparente -->
+    <color name="fondo_boton_transparente_borde">#FF6600</color> <!-- Borde naranja -->
 </resources>

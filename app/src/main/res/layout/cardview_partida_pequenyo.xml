@@ -1,0 +1,74 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:padding="16dp"
+    android:background="@color/background_cardview"
+    android:layout_margin="8dp">
+
+    <TextView
+        android:id="@+id/tvNombrePartida"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Nombre Partida"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:textColor="@color/texto_primario"/>
+
+    <TextView
+        android:id="@+id/tvNombreCampo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNombrePartida"
+        android:text="Nombre Campo"
+        android:textSize="14sp"
+        android:layout_marginBottom="5dp"
+        android:textColor="@color/texto_secundario"/>
+
+    <TextView
+        android:id="@+id/tvJugadoresEquipo1"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvNombreCampo"
+        android:text="Jugadores Equipo 1"
+        android:textSize="14sp"
+        android:textColor="@color/texto_primario"/>
+
+    <TextView
+        android:id="@+id/tvJugadoresEquipo2"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvJugadoresEquipo1"
+        android:text="Jugadores Equipo 2"
+        android:textSize="14sp"
+        android:textColor="@color/texto_primario"/>
+
+    <TableLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/tvJugadoresEquipo2"
+        android:layout_marginTop="8dp">
+
+        <TableRow>
+            <TextView
+                android:id="@+id/tvFecha"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:text="Fecha"
+                android:textSize="14sp"
+                android:textColor="@color/texto_primario"
+                android:paddingEnd="8dp"/>
+
+            <Button
+                android:id="@+id/btnCv"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:text="Baja"
+                android:background="@drawable/estilo_boton_transparente"
+                android:textColor="@color/rojo"
+                android:textAllCaps="false"/>
+        </TableRow>
+    </TableLayout>
+
+</RelativeLayout>

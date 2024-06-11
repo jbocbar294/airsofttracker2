@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="opciones_spinner">
+        <item>Campo Abierto</item>
+        <item>CQB</item>
+        <item>Mixto</item>
+    </string-array>
+</resources>
