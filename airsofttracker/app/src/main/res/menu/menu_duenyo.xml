@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item
+        android:id="@+id/pageMiCampo"
+        android:icon="@drawable/campo"
+        android:title="@string/campo" />
+    <item
+        android:id="@+id/pageMisPartidas"
+        android:icon="@drawable/game"
+        android:title="@string/partidas"/>
+    <item
+        android:id="@+id/pagePerfil"
+        android:icon="@drawable/profile"
+        android:title="@string/perfil"/>
+</menu>

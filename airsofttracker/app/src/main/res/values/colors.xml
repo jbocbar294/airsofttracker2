@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<resources>
+    <!-- Colores de fondo -->
+    <color name="fondo">#212121</color>
+    <color name="fondo_claro">#393939</color>
+    <color name="fondo_transparente">#80212121</color>
+
+    <!-- Colores primarios -->
+    <color name="primario">#E6DBC0</color>
+    <color name="primario_oscuro">#B1A994</color>
+
+    <!-- Colores de texto -->
+    <color name="texto_primario">#FBF5CD</color>
+    <color name="texto_secundario">#CCC49F</color>
+    <color name="texto_boton">#3C392B</color>
+    <color name="naranja">#FF6600</color>
+    <color name="rojo">#EF5D5D</color>
+    <color name="verde">#6BF66B</color>
+
+    <color name="blanco">#FFFFFF</color>
+    <color name="negro">#000000</color>
+    <color name="gris">#A1A1A1</color>
+
+    <!-- Colores para botones -->
+    <color name="fondo_boton">#FF6600</color> <!-- Naranja -->
+    <color name="fondo_boton_transparente">#2DFFFFFF</color> <!-- Blanco semi-transparente -->
+    <color name="fondo_boton_transparente_borde">#FF6600</color> <!-- Borde naranja -->
+</resources>

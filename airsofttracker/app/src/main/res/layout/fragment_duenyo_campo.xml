@@ -1,0 +1,87 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/frg_owner_campo"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:layout_gravity="center"
+    android:background="@color/fondo"
+    android:orientation="vertical"
+    android:gravity="center"
+    tools:context=".OwnerFragmentCampo">
+
+    <TextView
+        android:id="@+id/tvOwnerMiCampo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:gravity="center"
+        android:text="@string/miCampo"
+        android:textSize="24sp"
+        android:textColor="@color/primario"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/v1"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@color/primario" />
+
+    <TextView
+        android:id="@+id/tvOwnerNombreCampo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textColor="@color/texto_secundario"/>
+
+    <TextView
+        android:id="@+id/tvOnwerDescripcion"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="20dp"
+        android:layout_marginEnd="20dp"
+        android:layout_marginTop="50dp"
+        android:gravity="center"
+        android:text="@string/descripcionCampo"
+        android:textSize="20dp"
+        android:textColor="@color/primario"
+        android:textStyle="bold" />
+
+    <View
+        android:id="@+id/v2"
+        android:layout_width="wrap_content"
+        android:layout_height="2dp"
+        android:background="@color/primario" />
+
+    <TextView
+        android:id="@+id/tvOnwerDescripcionCampo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="10dp"
+        android:layout_marginTop="5dp"
+        android:layout_marginEnd="10dp"
+        android:textSize="20sp"
+        android:gravity="center"
+        android:paddingTop="3dp"
+        android:paddingBottom="3dp"
+        android:textColor="@color/texto_secundario"/>
+
+    <Button
+        android:id="@+id/btnEditarCampo"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_marginTop="20dp"
+        android:layout_marginBottom="2dp"
+        android:gravity="center"
+        android:background="@drawable/estilo_boton"
+        android:textColor="@color/texto_boton"
+        android:text="@string/editaCampo"
+        android:textAllCaps="false"/>
+</LinearLayout>

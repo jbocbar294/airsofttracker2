@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:padding="16dp"
+    android:id="@+id/frgPerfil"
+    android:background="@color/fondo"
+    tools:context=".FragmentPerfil">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:gravity="center">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="20dp"
+            android:text="@string/miPerfil"
+            android:textColor="@color/primario"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <EditText
+                android:id="@+id/etNombre"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:layout_marginEnd="5dp"
+                android:hint="@string/nombre"
+                android:textColor="@color/texto_secundario"
+                android:textColorHint="@color/texto_secundario"
+                android:background="@drawable/estilo_edittext"
+                android:padding="10dp"
+                android:textColorHighlight="@color/rojo"/>
+
+            <EditText
+                android:id="@+id/etEdad"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:hint="@string/edad"
+                android:inputType="number"
+                android:background="@drawable/estilo_edittext"
+                android:padding="10dp"
+                android:textColor="@color/texto_secundario"
+                android:textColorHint="@color/texto_secundario"
+                android:textColorHighlight="@color/rojo" />
+
+        </LinearLayout>
+
+        <EditText
+            android:id="@+id/etApellidos"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="45dp"
+            android:layout_marginEnd="45dp"
+            android:hint="@string/apellidos"
+            android:layout_marginTop="4dp"
+            android:layout_marginBottom="4dp"
+            android:gravity="center_horizontal"
+            android:background="@drawable/estilo_edittext"
+            android:padding="10dp"
+            android:textColor="@color/texto_secundario"
+            android:textColorHint="@color/texto_secundario"
+            android:textColorHighlight="@color/rojo"/>
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:gravity="center"
+            android:paddingStart="25dp"
+            android:paddingEnd="25dp"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="20dp">
+
+            <EditText
+                android:id="@+id/etTelefono"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="4"
+                android:layout_marginEnd="5dp"
+                android:hint="@string/telefono"
+                android:inputType="phone"
+                android:background="@drawable/estilo_edittext"
+                android:padding="10dp"
+                android:textColor="@color/texto_secundario"
+                android:textColorHint="@color/texto_secundario"
+                android:textColorHighlight="@color/rojo"/>
+
+            <EditText
+                android:id="@+id/etUsuario"
+                android:layout_width="0dp"
+                android:layout_height="wrap_content"
+                android:layout_weight="6"
+                android:hint="@string/usuario"
+                android:background="@drawable/estilo_edittext"
+                android:padding="10dp"
+                android:textColor="@color/texto_secundario"
+                android:textColorHint="@color/texto_secundario"
+                android:textColorHighlight="@color/rojo"/>
+
+        </LinearLayout>
+
+        <Button
+            android:id="@+id/btnGuardarPerfil"
+            android:layout_height="30dp"
+            android:layout_width="wrap_content"
+            android:layout_marginTop="25dp"
+            android:background="@drawable/estilo_boton"
+            android:text="Guardar"
+            android:textAllCaps="false"
+            android:textColor="@color/texto_boton" />
+
+        <Button
+            android:id="@+id/btnCerrarSesion"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="40dp"
+            android:background="@drawable/estilo_boton_transparente"
+            android:text="@string/cerrarSesion"
+            android:textAllCaps="false"
+            android:textColor="@color/texto_secundario"/>
+
+    </LinearLayout>
+</RelativeLayout>

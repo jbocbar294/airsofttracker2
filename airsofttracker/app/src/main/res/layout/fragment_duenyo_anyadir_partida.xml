@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center"
+    android:orientation="vertical"
+    android:background="@color/fondo"
+    tools:context=".OwnerFragmentAddPartida">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp">
+
+    </LinearLayout>
+
+    <EditText
+        android:id="@+id/etNombrePartida"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/nombreDeLaPartida"
+        android:textColor="@color/texto_secundario"
+        android:textColorHint="@color/texto_secundario"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        android:padding="12dp"
+        android:background="@drawable/estilo_edittext"
+        android:textColorHighlight="@color/rojo"/>
+
+    <EditText
+        android:id="@+id/etMaxJugadores"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:hint="@string/jugadoresPorEquipo"
+        android:inputType="number"
+        android:textColor="@color/texto_secundario"
+        android:textColorHint="@color/texto_secundario"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp"
+        android:padding="12dp"
+        android:background="@drawable/estilo_edittext"
+        android:textColorHighlight="@color/rojo"/>
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginStart="25dp"
+        android:layout_marginEnd="25dp"
+        android:layout_marginBottom="10dp">
+
+        <EditText
+            android:id="@+id/etFechaInicio"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/texto_secundario"
+            android:textColorHint="@color/texto_secundario"
+            android:hint="@string/fechaInicio"
+            android:focusable="false"
+            android:clickable="true"
+            android:padding="12dp"
+            android:background="@drawable/estilo_edittext"
+            android:textColorHighlight="@color/rojo"/>
+
+        <EditText
+            android:id="@+id/etFechaFin"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:textColor="@color/texto_secundario"
+            android:textColorHint="@color/texto_secundario"
+            android:hint="@string/fechaFin"
+            android:focusable="false"
+            android:clickable="true"
+            android:layout_marginStart="8dp"
+            android:padding="12dp"
+            android:background="@drawable/estilo_edittext"
+            android:textColorHighlight="@color/rojo"/>
+    </LinearLayout>
+
+    <Button
+        android:id="@+id/btnGuardarPartida"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:layout_margin="16dp"
+        android:background="@drawable/estilo_boton"
+        android:text="@string/guardar"
+        android:textAllCaps="false"
+        android:textColor="@color/texto_boton"/>
+</LinearLayout>

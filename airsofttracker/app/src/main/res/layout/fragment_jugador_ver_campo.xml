@@ -1,0 +1,48 @@
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:padding="16dp"
+    android:gravity="center"
+    android:orientation="vertical"
+    tools:context=".PlayerFragmentVerCampo"
+    android:background="@color/fondo">
+
+    <TextView
+        android:id="@+id/tvNombreCampo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="24sp"
+        android:textStyle="bold"
+        android:textColor="@color/primario"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/tvTipoCampo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textSize="18sp"
+        android:gravity="center"
+        android:textColor="@color/texto_primario"
+        android:layout_marginBottom="16dp"/>
+
+    <TextView
+        android:id="@+id/tvDescripcionCampo"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textSize="16sp"
+        android:textColor="@color/texto_secundario"
+        android:layout_marginBottom="16dp"/>
+
+    <Button
+        android:id="@+id/btnDejarSeguirCampo"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="@string/dejarDeSeguir"
+        android:gravity="center"
+        android:background="@drawable/estilo_boton"
+        android:textColor="@color/texto_boton"
+        android:textAllCaps="false"/>
+</LinearLayout>

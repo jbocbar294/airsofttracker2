@@ -1,0 +1,76 @@
+<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OwnerFragmentPartidas">
+
+    <LinearLayout
+        android:id="@+id/frg_owner_partidas"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/fondo"
+        android:gravity="center_horizontal"
+        android:orientation="vertical"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvOwnerMisPartidas"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_gravity="center"
+            android:gravity="center"
+            android:text="@string/misPartidas"
+            android:textColor="@color/texto_primario"
+            android:textSize="24sp"
+            android:textStyle="bold" />
+
+        <View
+            android:id="@+id/imgLinea"
+            android:layout_width="wrap_content"
+            android:layout_height="2dp"
+            android:background="@color/primario" />
+
+        <ScrollView
+            android:id="@+id/svPartidas"
+            android:layout_width="match_parent"
+            android:layout_height="530dp"
+            android:layout_below="@id/imgLinea"
+            android:fillViewport="true">
+
+            <LinearLayout
+                android:id="@+id/llPartidas"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:orientation="vertical">
+
+                <TextView
+                    android:id="@+id/tvNoPartidas"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginTop="180dp"
+                    android:layout_gravity="center"
+                    android:text="@string/noTienesPartidas"
+                    android:textColor="@color/texto_secundario"
+                    android:textSize="16dp"
+                    android:visibility="gone" />
+
+            </LinearLayout>
+
+        </ScrollView>
+
+        <Button
+            android:id="@+id/btnAddPartida"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_marginTop="10dp"
+            android:layout_gravity="center"
+            android:background="@drawable/estilo_boton"
+            android:text="@string/crearPartida"
+            android:textAllCaps="false"
+            android:textColor="@color/texto_boton" />
+
+    </LinearLayout>
+
+
+
+</FrameLayout>

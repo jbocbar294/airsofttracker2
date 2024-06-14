@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:layout_margin="6dp"
+    app:cardCornerRadius="8dp"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="140dp"
+        android:background="@drawable/foto3"
+        android:padding="16dp">
+
+        <TextView
+            android:id="@+id/tvCampoNombre"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentStart="true"
+            android:text="nombre"
+            android:textSize="20dp"
+            android:textColor="@color/texto_primario"
+            android:textStyle="bold"/>
+
+        <Button
+            android:id="@+id/btnVerCampo"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_alignParentTop="true"
+            android:text="Ver campo"
+            android:textAllCaps="false"
+            android:background="@drawable/estilo_boton"/>
+
+        <TextView
+            android:id="@+id/tvCampoTipo"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCampoNombre"
+            android:text="tipo"
+            android:textSize="14dp"
+            android:textStyle="bold"
+            android:textColor="@color/texto_secundario" />
+
+        <TextView
+            android:id="@+id/tvCampoDescripcion"
+            android:layout_width="250dp"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/tvCampoTipo"
+            android:text="descripcion"
+            android:textSize="12dp"
+            android:textColor="@color/texto_secundario" />
+
+    </RelativeLayout>
+</androidx.cardview.widget.CardView>
