@@ -1,8 +1,0 @@
-<resources xmlns:tools="http://schemas.android.com/tools">
-    <!-- Base application theme. -->
-    <style name="Base.Theme.Airsofttracker2" parent="Theme.AppCompat.DayNight.NoActionBar">
-
-    </style>
-
-    <style name="Theme.Airsofttracker2" parent="Base.Theme.Airsofttracker2" />
-</resources>
