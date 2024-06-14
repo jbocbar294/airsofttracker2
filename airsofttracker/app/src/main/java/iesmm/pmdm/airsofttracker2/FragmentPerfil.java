@@ -44,14 +44,17 @@ public class FragmentPerfil extends Fragment {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Instanciar Firebase
         mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
-        uid = mAuth.getCurrentUser().getUid();
+        uid = mAuth.getCurrentUser().getUid();  // Obtenemos UID del usuario actual
     }
 
     @Override
     public View onCreateView(@NonNull LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_perfil, container, false);
+
+        // Asignar objetos
         etNombre = view.findViewById(R.id.etNombre);
         etEdad = view.findViewById(R.id.etEdad);
         etApellidos = view.findViewById(R.id.etApellidos);
@@ -64,15 +67,18 @@ public class FragmentPerfil extends Fragment {
 
         cargarInfoPerfil();
 
+        // Escuchador del botón guardar
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                // Obtenemos los valores de los campos
                 String nombre = etNombre.getText().toString();
                 String apellidos = etApellidos.getText().toString();
                 String telefono = etTelefono.getText().toString();
                 String usuario = etUsuario.getText().toString();
                 String edadAux = etEdad.getText().toString();
 
+                // Verificamos que todos los campos estén completos
                 if (nombre.isEmpty() || apellidos.isEmpty() || telefono.isEmpty() || usuario.isEmpty() || edadAux.isEmpty()) {
                     Toast.makeText(getContext(), "Por favor, completa todos los campos", Toast.LENGTH_SHORT).show();
                 } else {
@@ -84,6 +90,7 @@ public class FragmentPerfil extends Fragment {
                         return;
                     }
 
+                    // Creamos un mapa con los datos del perfil
                     Map<String, Object> perfil = new HashMap<>();
                     perfil.put("nombre", nombre);
                     perfil.put("apellidos", apellidos);
@@ -91,6 +98,7 @@ public class FragmentPerfil extends Fragment {
                     perfil.put("usuario", usuario);
                     perfil.put("edad", edad);
 
+                    // Actualizamos el perfil en firebase
                     DocumentReference docRef = mFirestore.collection("usuarios").document(uid);
                     docRef.update(perfil).addOnCompleteListener(task -> {
                         if (task.isSuccessful()) {
@@ -104,6 +112,7 @@ public class FragmentPerfil extends Fragment {
             }
         });
 
+        // Configuramos el botón cerrar sesión
         btnCerrarSesion.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -117,17 +126,20 @@ public class FragmentPerfil extends Fragment {
         return view;
     }
 
+    // Método para cargar la información del perfil del usuario
     private void cargarInfoPerfil() {
-        DocumentReference docRef = mFirestore.collection("usuarios").document(uid);
+        DocumentReference docRef = mFirestore.collection("usuarios").document(uid); // Obtenemos el documento del usuario
         docRef.get().addOnCompleteListener(task -> {
             if (task.isSuccessful()) {
-                DocumentSnapshot document = task.getResult();
+                DocumentSnapshot document = task.getResult(); // Lo almacenamos
                 if (document.exists()) {
+                    // Asignar datos a los EditText
                     etNombre.setText(document.getString("nombre"));
                     etApellidos.setText(document.getString("apellidos"));
                     etTelefono.setText(document.getString("telefono"));
                     etUsuario.setText(document.getString("usuario"));
 
+                    // Asignar edad si está disponible
                     Object edadObj = document.get("edad");
                     if (edadObj instanceof Long) {
                         etEdad.setText(String.valueOf((Long) edadObj));

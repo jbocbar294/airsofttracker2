@@ -39,16 +39,19 @@ public class OwnerActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_owner);
 
+        // Instancia de SharedPreferences y Firebase
         sharedPreferences = getSharedPreferences("configuraciones", Context.MODE_PRIVATE);
         mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
+        // Asignar objetos a las vistas
         tvUsuario = findViewById(R.id.tv1);
         tvUsuario.setText(getResources().getString(R.string.campo));
         tvInfo = findViewById(R.id.tvInfo);
         tvInfo.setText(R.string.infoFragmentCampoDuenyo);
         btnInfo = findViewById(R.id.btnInfo);
 
+        // Configuración del botón de información
         btnInfo.setOnClickListener(v -> {
             if (tvInfo.getVisibility() == View.GONE) {
                 expandirInfo(true);
@@ -65,10 +68,10 @@ public class OwnerActivity extends AppCompatActivity {
             setUpNavegacion();
         }, 700);
 
-
         setUpNavegacion();
     }
 
+    // Método para verificar si el campo existe
     private void verificarCampo() {
         String uid = mAuth.getCurrentUser().getUid();
         mFirestore.collection("campos").document(uid).get().addOnCompleteListener(task -> {
@@ -82,7 +85,6 @@ public class OwnerActivity extends AppCompatActivity {
                 } else {
                     // El campo no existe, mostrar mensaje y redirigir
                     quitarCargando();
-                    // Redirigir a la actividad para crear un campo
                     Intent intent = new Intent(OwnerActivity.this, FieldCreateActivity.class);
                     startActivity(intent);
                     finish();
@@ -95,6 +97,7 @@ public class OwnerActivity extends AppCompatActivity {
         });
     }
 
+    // Método para configurar la navegación
     private void setUpNavegacion() {
         BottomNavigationView bottomNavigationView = findViewById(R.id.bottom_navigation_view_duenyo);
         NavHostFragment navHostFragment = (NavHostFragment) getSupportFragmentManager().findFragmentById(R.id.nav_host_fragment_duenyo);
@@ -119,6 +122,7 @@ public class OwnerActivity extends AppCompatActivity {
         });
     }
 
+    // Método para mostrar el ProgressDialog de carga
     private void cargando() {
         progressDialog = new ProgressDialog(this);
         progressDialog.setMessage(getResources().getString(R.string.cargando));
@@ -126,12 +130,14 @@ public class OwnerActivity extends AppCompatActivity {
         progressDialog.show();
     }
 
+    // Método para quitar el ProgressDialog de carga
     private void quitarCargando() {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();
         }
     }
 
+    // Método para expandir o contraer la información
     private void expandirInfo(boolean expand) {
         float inicioTamanyo = expand ? 24 : 32;
         float finTamanyo = expand ? 32 : 24;
@@ -154,7 +160,7 @@ public class OwnerActivity extends AppCompatActivity {
         float endRotation = expand ? 180f : 0f;
         ObjectAnimator rotationAnimator = ObjectAnimator.ofFloat(btnInfo, "rotation", startRotation, endRotation);
 
-        // Configurar y ejecutar el conjunto de animadores
+        // Ejecutar las animaciones
         AnimatorSet animatorSet = new AnimatorSet();
         animatorSet.playTogether(animatorTamanyo, alphaAnimator, rotationAnimator);
         animatorSet.setDuration(300);
@@ -167,5 +173,4 @@ public class OwnerActivity extends AppCompatActivity {
             new Handler().postDelayed(() -> tvInfo.setVisibility(View.GONE), 300);
         }
     }
-
 }

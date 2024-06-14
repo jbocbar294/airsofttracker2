@@ -43,6 +43,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.layout_login);
 
+        // Asignar objetos a las vistas
         btnLogin = findViewById(R.id.btnCrearCampo);
         btnRegistrar = findViewById(R.id.btnRegistrar);
         btnLogin.setOnClickListener(this);
@@ -50,6 +51,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         etEmail = findViewById(R.id.etUsuarioRegister);
         etContrasenya = findViewById(R.id.etContrasenya);
 
+        // Instancias de Firebase y SharedPreferences
         sharedPreferences = getSharedPreferences("configuraciones", Context.MODE_PRIVATE);
         editor = sharedPreferences.edit();
         mFirestore = FirebaseFirestore.getInstance();
@@ -77,6 +79,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     private void iniciarSesion() {
         mostrarCargando();
 
+        // Método de FirebaseAuth para iniciar sesión con correo y contraseña
         mAuth.signInWithEmailAndPassword(email, contrasenya).addOnCompleteListener(this, new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
@@ -122,6 +125,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         void onCallback(String usuario);
     }
 
+    // Método para obtener el usuario a partir del email
     private void obtenerUsuarioConEmail(String uid, final FirestoreCallback firestoreCallback) {
         DocumentReference docRef = mFirestore.collection("usuarios").document(uid);
         docRef.addSnapshotListener(this, new EventListener<DocumentSnapshot>() {
@@ -167,6 +171,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         });
     }
 
+    // Método para mostrar el ProgressDialog de carga
     private void mostrarCargando() {
         AlertDialog.Builder builder = new AlertDialog.Builder(this);
         LayoutInflater inflater = this.getLayoutInflater();
@@ -177,6 +182,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         progressDialog.show();
     }
 
+    // Método para ocultar el ProgressDialog de carga
     private void ocultarCargando() {
         if (progressDialog != null && progressDialog.isShowing()) {
             progressDialog.dismiss();

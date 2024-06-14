@@ -26,28 +26,31 @@ public class FieldCreateActivity extends AppCompatActivity {
     private Button btnRegistrar2;
     private TextView tvContador;
     private FirebaseFirestore mFirestore;
-    private FirebaseAuth mAuth;;
+    private FirebaseAuth mAuth;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_duenyo_crear_campo);
 
+        // Asignamos vistas a los objetos
         etNombre = findViewById(R.id.etNombre);
         etDescripcion = findViewById(R.id.etDescripcion);
         spinnerOpciones = findViewById(R.id.spinnerOpciones);
         btnRegistrar2 = findViewById(R.id.btnCrearCampo);
         tvContador = findViewById(R.id.tvContador);
 
-        // Añade las opciones al spinner
+        // Añadimos las opciones al spinner
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(this,
                 R.array.opciones_spinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerOpciones.setAdapter(adapter);
 
+        // Instancias de Firebase
         mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
 
+        // Escuchador para actualizar el contador de caracteres de la descripción
         etDescripcion.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -62,36 +65,45 @@ public class FieldCreateActivity extends AppCompatActivity {
             public void afterTextChanged(Editable s) {}
         });
 
+        // Escuchador para el botón registrar
         btnRegistrar2.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 String nombre = etNombre.getText().toString().trim();
                 String descripcion = etDescripcion.getText().toString().trim();
 
+                // Verificamos que los campos no estén vacíos
                 if (nombre.isEmpty() || descripcion.isEmpty()) {
                     Toast.makeText(FieldCreateActivity.this, getResources().getString(R.string.debesCompletarCampos), Toast.LENGTH_SHORT).show();
                 } else {
+                    // Registramos el campo
                     registrarCampo(nombre, descripcion);
                 }
             }
         });
     }
 
+    // Método para registrar el campo en firebase
     public void registrarCampo(String nombre, String descripcion) {
-        String uid = mAuth.getCurrentUser().getUid();
-        String tipo = spinnerOpciones.getSelectedItem().toString();
-        DocumentReference docRef = mFirestore.collection("campos").document(uid);
+        String uid = mAuth.getCurrentUser().getUid(); // Obtenemos UID del usuario actual
+        String tipo = spinnerOpciones.getSelectedItem().toString(); // Obtenemos el tipo seleccionado en el spinner
+        DocumentReference docRef = mFirestore.collection("campos").document(uid); // Obtenemos el documento del campo
 
+        // Creamos un mapa con los datos del campo
         Map<String, Object> map = new HashMap<>();
         map.put("nombre", nombre);
         map.put("descripcion", descripcion);
         map.put("tipo", tipo);
         map.put("duenyo", uid);
+
+        // Guardamos el campo en firebase
         docRef.set(map).addOnSuccessListener(aVoid -> {
             Toast.makeText(getApplicationContext(), "Campo registrado con éxito", Toast.LENGTH_SHORT).show();
 
+            // Esperamos 1.5 segundos
             Handler handler = new Handler();
             handler.postDelayed(() -> {
+                // Redirigimos a la nueva actividad
                 Intent intent = new Intent(getApplicationContext(), OwnerActivity.class);
                 startActivity(intent);
                 finish();

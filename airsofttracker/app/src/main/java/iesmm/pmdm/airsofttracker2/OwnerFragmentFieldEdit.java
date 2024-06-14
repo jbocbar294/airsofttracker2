@@ -15,10 +15,14 @@ import android.widget.EditText;
 import android.widget.Spinner;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import com.google.android.gms.tasks.OnFailureListener;
+import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.DocumentSnapshot;
 import com.google.firebase.firestore.FirebaseFirestore;
+
 import java.util.HashMap;
 import java.util.Map;
 
@@ -42,9 +46,10 @@ public class OwnerFragmentFieldEdit extends Fragment {
     @Override
     public void onCreate(@Nullable Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
+        // Instancia de Firebase
         mFirestore = FirebaseFirestore.getInstance();
         mAuth = FirebaseAuth.getInstance();
-        uid = mAuth.getCurrentUser().getUid();
+        uid = mAuth.getCurrentUser().getUid(); // Obtener el ID del usuario actual
     }
 
     @Nullable
@@ -52,17 +57,20 @@ public class OwnerFragmentFieldEdit extends Fragment {
     public View onCreateView(@NonNull LayoutInflater inflater, @Nullable ViewGroup container, @Nullable Bundle savedInstanceState) {
         View view = inflater.inflate(R.layout.fragment_duenyo_editar_campo, container, false);
 
+        // Asignar objetos
         etNombre = view.findViewById(R.id.etNombre);
         etDescripcion = view.findViewById(R.id.etDescripcion);
         spinnerOpciones = view.findViewById(R.id.spinnerOpciones);
         btnGuardar = view.findViewById(R.id.btnGuardar);
         tvContador = view.findViewById(R.id.tvContador);
 
+        // Configurar el Spinner con las opciones
         ArrayAdapter<CharSequence> adapter = ArrayAdapter.createFromResource(getContext(),
                 R.array.opciones_spinner, android.R.layout.simple_spinner_item);
         adapter.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);
         spinnerOpciones.setAdapter(adapter);
 
+        // Escuchador para actualizar el contador de caracteres
         etDescripcion.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence s, int start, int count, int after) {}
@@ -80,6 +88,7 @@ public class OwnerFragmentFieldEdit extends Fragment {
         // Cargar datos existentes del campo
         camposActuales();
 
+        // Configuración del botón guardar
         btnGuardar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -87,22 +96,31 @@ public class OwnerFragmentFieldEdit extends Fragment {
                 String descripcion = etDescripcion.getText().toString().trim();
                 String tipo = spinnerOpciones.getSelectedItem().toString();
 
+                // Verificar que todos los campos estén completos
                 if (nombre.isEmpty() || descripcion.isEmpty()) {
                     Toast.makeText(getContext(), "Debes completar todos los campos para continuar", Toast.LENGTH_SHORT).show();
                     return;
                 }
 
+                // Guardar los datos en firebase
                 DocumentReference docRef = mFirestore.collection("campos").document(uid);
                 Map<String, Object> map = new HashMap<>();
                 map.put("nombre", nombre);
                 map.put("descripcion", descripcion);
                 map.put("tipo", tipo);
 
-                docRef.set(map).addOnSuccessListener(aVoid -> {
-                    Toast.makeText(getContext(), "Campo actualizado con éxito", Toast.LENGTH_SHORT).show();
-                    getFragmentManager().popBackStack(); // Volver al fragmento anterior
-                }).addOnFailureListener(e -> {
-                    Toast.makeText(getContext(), "Error al actualizar el campo", Toast.LENGTH_SHORT).show();
+                // Actualizar el documento en firebase
+                docRef.set(map).addOnSuccessListener(new OnSuccessListener<Void>() {
+                    @Override
+                    public void onSuccess(Void unused) {
+                        Toast.makeText(getContext(), "Campo actualizado con éxito", Toast.LENGTH_SHORT).show();
+                        getFragmentManager().popBackStack(); // Volver al fragmento anterior
+                    }
+                }).addOnFailureListener(new OnFailureListener() {
+                    @Override
+                    public void onFailure(@NonNull Exception e) {
+                        Toast.makeText(getContext(), "Error al actualizar el campo", Toast.LENGTH_SHORT).show();
+                    }
                 });
             }
         });
@@ -110,6 +128,7 @@ public class OwnerFragmentFieldEdit extends Fragment {
         return view;
     }
 
+    // Método para cargar los datos existentes del campo
     private void camposActuales() {
         if (uid != null) {
             DocumentReference docRef = mFirestore.collection("campos").document(uid);
@@ -117,6 +136,7 @@ public class OwnerFragmentFieldEdit extends Fragment {
                 if (task.isSuccessful()) {
                     DocumentSnapshot document = task.getResult();
                     if (document.exists()) {
+                        // Asignar datos a los textviews
                         String nombreCampo = document.getString("nombre");
                         String descripcionCampo = document.getString("descripcion");
                         etNombre.setText(nombreCampo);
@@ -132,5 +152,4 @@ public class OwnerFragmentFieldEdit extends Fragment {
             Toast.makeText(getContext(), "Error", Toast.LENGTH_SHORT).show();
         }
     }
-
 }
